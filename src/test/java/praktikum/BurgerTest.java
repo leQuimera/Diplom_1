@@ -41,7 +41,7 @@ public class BurgerTest {
     @Test
     public void moveIngredientTest() {
         burger.addIngredient(ingredient);
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "some sauce", 100));
+        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "chili sauce", 300));
         burger.moveIngredient(0, 1);
         assertEquals(ingredient, burger.ingredients.get(1));
     }
@@ -61,11 +61,11 @@ public class BurgerTest {
     public void getReceiptTest() {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        Mockito.when(bun.getName()).thenReturn("Флюоресцентная булка R2-D3");
-        Mockito.when(bun.getPrice()).thenReturn(988.0f);
+        Mockito.when(bun.getName()).thenReturn("white bun");
+        Mockito.when(bun.getPrice()).thenReturn(200.0f);
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
-        Mockito.when(ingredient.getName()).thenReturn("Соус фирменный Space Sauce");
-        Mockito.when(ingredient.getPrice()).thenReturn(80.0f);
+        Mockito.when(ingredient.getName()).thenReturn("sour cream");
+        Mockito.when(ingredient.getPrice()).thenReturn(200.0f);
 
         assertFalse(burger.getReceipt().isEmpty());
     }
